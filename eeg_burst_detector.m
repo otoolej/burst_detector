@@ -1,6 +1,9 @@
 %-------------------------------------------------------------------------------
 % eeg_burst_detector: Detect bursts for one (bipolar) channel of EEG
 %
+% method was developed for the following bipolar montgage: F3-C3, F4-C4, C3-O1, 
+% C4-O2, C3-T3, C4-T4, Cz-C3, and C4-Cz.  
+%
 % Syntax: [burst_anno,t_stat]=eeg_burst_detector(eeg_data,Fs)
 %
 % Inputs: 
@@ -31,7 +34,7 @@
 % John M. O' Toole, University College Cork
 % Started: 28-11-2014
 %
-% last update: Time-stamp: <2015-06-26 10:05:03 (otoolej)>
+% last update: Time-stamp: <2015-07-01 16:18:47 (otoolej)>
 %-------------------------------------------------------------------------------
 function [burst_anno,svm_out,t_stat]=eeg_burst_detector(eeg_data,Fs)
 if(nargin<2 || isempty(Fs)), Fs=64; end
