@@ -5,7 +5,7 @@
 % John M. O' Toole, University College Cork
 % Started: 28-11-2014
 %
-% last update: Time-stamp: <2015-06-25 12:57:26 (otoolej)>
+% last update: Time-stamp: <2015-09-25 08:29:49 (otoolej)>
 %-------------------------------------------------------------------------------
 
 %---------------------------------------------------------------------
@@ -80,5 +80,5 @@ STATIC_THRES=1;
 % 3. post-processing to force minimum duration IBI and bursts:
 %---------------------------------------------------------------------
 % set to 0 to turn off: (in seconds)
-MIN_IBI_DUR=2;
-MIN_BURST_DUR=1;
+MIN_IBI_DUR=1.1;
+MIN_BURST_DUR=0.9;
