@@ -1,5 +1,5 @@
-Estimating Instantaneous Energy 
-================================
+Burst Detector for Preterm EEG
+==============================
 
 Collection of M-files (computer code) to implement a method to detect bursts on EEG
 recordings, as described in [[1]](#references). Uses a simple envelope feature from two
@@ -22,12 +22,17 @@ Matlab or Octave programming environments.
 
 # overview
 
+![Example of burst detector (purple annotation) on channel F3-C3](pics/detector_example_for_website.png)
+
 A simple method to detect bursts in the EEG of preterm infants. The method was developed
 by assessing multiple frequency and amplitude features of bursts. Selected features were combined in
 a classifier (support vector machine). After a feature selection and training procedure,
 the detector consisted of eight features which are combined in a linear support vector
 machine. The code here implements this detector, which was trained on annotations from
 1-channel of 10 minute EEG recordings from 36 preterm infants.
+
+![Another example of burst detector on channel C4-T4](pics/detector_example_for_website_v2.png)
+
 
 # quick start
 First, add paths using the `load_curdir` function:
@@ -56,6 +61,7 @@ First, add paths using the `load_curdir` function:
       xlabel('time (seconds)');
 ```
 
+![Burst detector (in Matlab environment) for impulsive noise test signal](pics/burst_detector_impulsive_noise_example.png)
 
 # files
 All Matlab files (.m files) have a description and an example in the header. To read this
@@ -73,7 +79,7 @@ header, type `help <filename.m>` in Matlab.  Directory structure is as follows:
 ├── gen_features.m                  # generate features
 ├── load_curdir.m                   # load the path
 └── utils
-├── do_bandpass_filtering.m       # bandpass filtering (IIR filter)
+└── do_bandpass_filtering.m       # bandpass filtering (IIR filter)
     ├── epoch_window.m              # epoch window size and hop lengths
     ├── get_window.m                # generate epoch window
     └── gen_impulsive_noise.m       # impulsive noise
@@ -131,10 +137,15 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # references
 
-1. J.M. O' Toole and N.J. Stevenson, “Assessing instantaneous energy in the EEG: a
+1. JM O' Toole, GB Boylan, RO Lloyd, RM Goulding, S Vanhatalo, and NJ Stevenson,
+“Detecting Bursts in the EEG of Premature Infants Using a Multi-Feature Approach”,
+submitted for review, 2015. [code online](http://otoolej.github.io/code/burst_detector/)
+
+
+2. JM O' Toole and NJ Stevenson, “Assessing instantaneous energy in the EEG: a
 non-negative, frequency-weighted energy operator”, In Engineering in Medicine and Biology
 Society (EMBC), 36th Annual International Conference of the IEEE, pp. 3288-3291. IEEE,
-2014. [code online](http://otoolej.github.io/code/nleo/)
+2014 [code online](http://otoolej.github.io/code/nleo/)
 
 
 
