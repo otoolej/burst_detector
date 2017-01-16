@@ -2,11 +2,11 @@ Burst Detector for Preterm EEG
 ==============================
 
 Collection of M-files (computer code) to implement a method to detect bursts on EEG
-recordings, as described in [[1]](#references). Uses a simple envelope feature from two
-frequency bands (0.5-3 and 3-8 Hz) which are then linearly combined. Developed and tested
-on EEG recordings from premature infants (<30 weeks gestational age) using a bipolar
-EEG montgage (F3-C3, F4-C4, C3-O1, C4-O2, C3-T3, C4-T4, Cz-C3, and C4-Cz).  Requires
-Matlab or Octave programming environments.
+recordings, as described in [[1]](#references). Detector uses a linear combination of
+multiple amplitude and spectral features.  Developed and tested on EEG recordings from
+premature infants (<30 weeks gestational age) using a bipolar EEG montgage (F3-C3, F4-C4,
+C3-O1, C4-O2, C3-T3, C4-T4, Cz-C3, and C4-Cz).  Requires Matlab or Octave programming
+environments.
 
 
 # contents

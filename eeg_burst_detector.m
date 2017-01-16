@@ -34,7 +34,7 @@
 % John M. O' Toole, University College Cork
 % Started: 28-11-2014
 %
-% last update: Time-stamp: <2015-07-01 16:18:47 (otoolej)>
+% last update: Time-stamp: <2017-01-16 11:15:07 (otoolej)>
 %-------------------------------------------------------------------------------
 function [burst_anno,svm_out,t_stat]=eeg_burst_detector(eeg_data,Fs)
 if(nargin<2 || isempty(Fs)), Fs=64; end
@@ -59,6 +59,7 @@ N=length(eeg_data);
 %---------------------------------------------------------------------
 t_stat=gen_features(eeg_data,Fs,FEATURE_SET_FINAL);
 N_feats=length(FEATURE_SET_FINAL);
+
 
 %---------------------------------------------------------------------
 % 2. linear SVM
@@ -90,10 +91,12 @@ burst_anno=y; svm_out=y;
 if(STATIC_THRES)
     burst_anno(burst_anno>=0)=1;
     burst_anno(burst_anno~=1)=0;
+    burst_anno(isnan(y))=NaN;
 else
     ad_thres=nan_mean(y);
     burst_anno=zeros(size(y));
     burst_anno(y>ad_thres)=1;
+    burst_anno(isnan(y))=NaN;    
 end
 
 
