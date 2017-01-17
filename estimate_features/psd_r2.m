@@ -25,7 +25,7 @@
 % John M. O' Toole, University College Cork
 % Started: 17-06-2015
 %
-% last update: Time-stamp: <2015-06-26 10:16:34 (otoolej)>
+% last update: Time-stamp: <2017-01-17 17:11:10 (otoolej)>
 %-------------------------------------------------------------------------------
 function t_stat=psd_r2(x,Fs,freq_band)
 if(nargin<2), error('need signal and sampling frequency as I/P args.'); end
@@ -78,10 +78,23 @@ function [c,r2]=lin_regress(x,y)
 %---------------------------------------------------------------------
 N=length(y);
 
-c=polyfit(x,y,1);
+% $$$ c=polyfit(x,y,1);
+c=fast_polyfit(x,y);
+
 
 y_fit=c(1)*x + c(2);
 y_residuals=y-y_fit;
 
 r2=1-(sum( y_residuals.^2 ))./( (N-1).*var(y) );
 
+
+
+function c=fast_polyfit(x1,y1)
+%---------------------------------------------------------------------
+% faster implementation (but no sanity checking) than polyfit.m 
+%
+% (from
+% https://uk.mathworks.com/matlabcentral/answers/41652-speed-comparison-between-polyfit-and-a-y)
+%---------------------------------------------------------------------
+c=[ones(length(x1),1) ,reshape(x1,length(x1),1)] \ reshape(y1,length(y1),1);
+c=fliplr(c');

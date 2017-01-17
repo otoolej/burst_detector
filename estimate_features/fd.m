@@ -30,7 +30,7 @@
 % John M. O' Toole, University College Cork
 % Started: 18-06-2015
 %
-% last update: Time-stamp: <2015-06-25 17:47:39 (otoolej)>
+% last update: Time-stamp: <2017-01-17 17:11:05 (otoolej)>
 %-------------------------------------------------------------------------------
 function t_stat=fd(x,Fs)
 if(nargin<2), error('need signal and sampling frequency as I/P args.'); end
@@ -121,8 +121,12 @@ for k=k_all
 end
 
 x1=log2(k_all); y1=log2(L_avg);
-c=polyfit(x1,y1,1);
-FD=-c(1);
+
+% $$$ c=polyfit(x1,y1,1);
+% $$$ FD=-c(1);
+FD=fast_polyfit(x1,y1); 
+
+
 
 if(nargout>1)
     y_fit=c(1)*x1 + c(2);
@@ -131,3 +135,14 @@ if(nargout>1)
     r2=1-(sum( y_residuals.^2 ))./( (N-1).*var(y1) );
 end
 
+
+
+function c=fast_polyfit(x1,y1)
+%---------------------------------------------------------------------
+% faster implementation (but no sanity checking) than polyfit.m 
+%
+% (from
+% https://uk.mathworks.com/matlabcentral/answers/41652-speed-comparison-between-polyfit-and-a-y)
+%---------------------------------------------------------------------
+c=[ones(length(x1),1) ,reshape(x1,length(x1),1)] \ reshape(y1,length(y1),1);
+c=-c(2);

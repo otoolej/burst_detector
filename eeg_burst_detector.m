@@ -34,7 +34,7 @@
 % John M. O' Toole, University College Cork
 % Started: 28-11-2014
 %
-% last update: Time-stamp: <2017-01-16 11:15:07 (otoolej)>
+% last update: Time-stamp: <2017-01-16 14:11:56 (otoolej)>
 %-------------------------------------------------------------------------------
 function [burst_anno,svm_out,t_stat]=eeg_burst_detector(eeg_data,Fs)
 if(nargin<2 || isempty(Fs)), Fs=64; end
@@ -73,7 +73,6 @@ y=lin_svm_params_st.bias;
 for n=1:N_feats
     y=y+lin_svm_params_st.coeff(n).*x(n,:);
 end
-
 
 % c. trim off start and end times:
 if(~isempty(WIN_TRIM))
