@@ -34,7 +34,7 @@
 % John M. O' Toole, University College Cork
 % Started: 28-11-2014
 %
-% last update: Time-stamp: <2017-01-16 14:11:56 (otoolej)>
+% last update: Time-stamp: <2017-01-17 17:51:12 (otoolej)>
 %-------------------------------------------------------------------------------
 function [burst_anno,svm_out,t_stat]=eeg_burst_detector(eeg_data,Fs)
 if(nargin<2 || isempty(Fs)), Fs=64; end
@@ -64,17 +64,17 @@ N_feats=length(FEATURE_SET_FINAL);
 %---------------------------------------------------------------------
 % 2. linear SVM
 %---------------------------------------------------------------------
-% a. shift and scale data:
+% a) shift and scale data:
 x=bsxfun(@minus,t_stat,[lin_svm_params_st.x_shift]');
 x=bsxfun(@times,x,(1./[lin_svm_params_st.x_scale])');
 
-% b. y ~ b + ∑ᵢ wᵢ xᵢ
+% b) y ~ b + ∑ᵢ wᵢ xᵢ
 y=lin_svm_params_st.bias;
 for n=1:N_feats
     y=y+lin_svm_params_st.coeff(n).*x(n,:);
 end
 
-% c. trim off start and end times:
+% c) trim off start and end times:
 if(~isempty(WIN_TRIM))
     WIN_TRIM=ceil(WIN_TRIM*Fs); 
     y(1:WIN_TRIM)=NaN;

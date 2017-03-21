@@ -5,9 +5,11 @@ Collection of M-files (computer code) to implement a method to detect bursts on 
 recordings, as described in [[1]](#references). Detector uses a linear combination of
 multiple amplitude and spectral features.  Developed and tested on EEG recordings from
 premature infants (<30 weeks gestational age) using a bipolar EEG montgage (F3-C3, F4-C4,
-C3-O1, C4-O2, C3-T3, C4-T4, Cz-C3, and C4-Cz).  Requires Matlab or Octave programming
-environments.
+C3-O1, C4-O2, C3-T3, C4-T4, Cz-C3, and C4-Cz). Detector operates on 1 channel only.
+Requires Matlab or Octave programming environments. Updates can be found
+at [github](https://github.com/otoolej/burst_detector).
 
+To cite this software, please use reference [[1]](#references).
 
 # contents
 * [overview](#overview)
@@ -35,7 +37,7 @@ machine. The code here implements this detector, which was trained on annotation
 
 
 # quick start
-First, add paths using the `load_curdir` function:
+Set paths in Matlab/Octave, or do so using the `load_curdir` function:
 ```matlab
   >> load_curdir;
 ```
@@ -79,7 +81,7 @@ header, type `help <filename.m>` in Matlab.  Directory structure is as follows:
 ├── gen_features.m                  # generate features
 ├── load_curdir.m                   # load the path
 └── utils
-└── do_bandpass_filtering.m       # bandpass filtering (IIR filter)
+    ├── do_bandpass_filtering.m     # bandpass filtering (IIR filter)
     ├── epoch_window.m              # epoch window size and hop lengths
     ├── get_window.m                # generate epoch window
     └── gen_impulsive_noise.m       # impulsive noise
@@ -87,18 +89,20 @@ header, type `help <filename.m>` in Matlab.  Directory structure is as follows:
 
 
 # requirements
-Either Matlab (R2013 or newer,
-[Mathworks website](http://www.mathworks.co.uk/products/matlab/)) or Octave (v3.8 or
-newer, [Octave website](http://www.gnu.org/software/octave/index.html), with the
-'octave-signal' add-on package).
+Either Matlab (R2013 or
+newer, [Mathworks website](http://www.mathworks.co.uk/products/matlab/)) with the Signal
+Processing Toolbox or Octave (v3.8 or
+newer, [Octave website](http://www.gnu.org/software/octave/index.html)) with the
+'octave-signal' add-on package.
 
 
 
 # test computer setup
 - hardware:  Intel(R) Xeon(R) CPU E5-1603 0 @ 2.80GHz; 8GB memory.
-- operating system: Ubuntu GNU/Linux x86_64 distribution (Vivid Vervet, 15.04), with Linux
-  kernel 3.19.0-21-generic 
-- software: Octave 3.8.2 (using Gnuplot 4.6 patchlevel 6), with 'octave-signal' toolbox, and Matlab (R2013a)
+- operating system: Ubuntu GNU/Linux x86_64 distribution (16.10, Yakkety Yak), with Linux
+  kernel 4.8.0-41-generic.
+- software: Octave (4.0.3) with 'octave-signal' toolbox and Matlab (R2013a) with Signal
+  Processing Toolbox.
 
 ---
 
@@ -138,15 +142,16 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 # references
 
 1. JM O' Toole, GB Boylan, RO Lloyd, RM Goulding, S Vanhatalo, and NJ Stevenson,
-“Detecting Bursts in the EEG of Very and Extremely Premature Infants Using a Multi-Feature Approach”,
-submitted for review, 2016. [code online](http://otoolej.github.io/code/burst_detector/)
+“Detecting Bursts in the EEG of Very and Extremely Premature Infants Using a Multi-Feature
+Approach”, under review, 2017.
 
 
 2. JM O' Toole and NJ Stevenson, “Assessing instantaneous energy in the EEG: a
-non-negative, frequency-weighted energy operator”, In Engineering in Medicine and Biology
-Society (EMBC), 36th Annual International Conference of the IEEE, pp. 3288-3291. IEEE,
-2014 [code online](http://otoolej.github.io/code/nleo/)
-
+non-negative, frequency-weighted energy operator”, In 36th Annual International Conference
+of the IEEE Engineering in Medicine and Biology Society (EMBC), pp. 3288-3291, 2014. 
+{ [paper](http://otoolej.github.io/pubs/PDFs/JMOToole_energy_EMBC14.pdf) |
+  [poster](http://otoolej.github.io/pubs/PDFs/EMBC_poster_Aug2014_NLEO.pdf) |
+  [code](http://otoolej.github.io/code/nleo/) }
 
 
 ---
