@@ -143,7 +143,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 1. JM O' Toole, GB Boylan, RO Lloyd, RM Goulding, S Vanhatalo, and NJ Stevenson,
 “Detecting Bursts in the EEG of Very and Extremely Premature Infants Using a Multi-Feature
-Approach”, under review, 2017.
+Approach”, Medical Engineering & Physics, in press, 2017.
 
 
 2. JM O' Toole and NJ Stevenson, “Assessing instantaneous energy in the EEG: a
@@ -161,10 +161,10 @@ of the IEEE Engineering in Medicine and Biology Society (EMBC), pp. 3288-3291, 2
 John M. O' Toole
 
 Neonatal Brain Research Group,  
-Irish Centre for Fetal and Neonatal Translational Research (INFANT),  
+Irish Centre for Fetal and Neonatal Translational Research ([INFANT](http://www.infantcentre.ie/)),  
 Department of Paediatrics and Child Health,  
 University College Cork,  
-Western Gateway Building, Room 2.17,  
+Cork University Hospital, Room 2.19 Paediatrics Building,  
 Cork, Ireland
 
 
