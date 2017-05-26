@@ -143,7 +143,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 1. JM O' Toole, GB Boylan, RO Lloyd, RM Goulding, S Vanhatalo, and NJ Stevenson,
 “Detecting Bursts in the EEG of Very and Extremely Premature Infants Using a Multi-Feature
-Approach”, Medical Engineering & Physics, in press, 2017.
+Approach”, Medical Engineering & Physics, vol. 45, pp. 42-50, 2017. [DOI:10.1016/j.medengphy.2017.04.003](https://doi.org/10.1016/j.medengphy.2017.04.003)
 
 
 2. JM O' Toole and NJ Stevenson, “Assessing instantaneous energy in the EEG: a
