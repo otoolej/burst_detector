@@ -9,7 +9,9 @@ C3-O1, C4-O2, C3-T3, C4-T4, Cz-C3, and C4-Cz). Detector operates on 1 channel on
 Requires Matlab or Octave programming environments. Updates can be found
 at [github](https://github.com/otoolej/burst_detector).
 
-To cite this software, please use reference [[1]](#references).
+To cite this software, please use reference [[1]](#references). 
+
+[![DOI](https://zenodo.org/badge/42042482.svg)](https://zenodo.org/badge/latestdoi/42042482)
 
 # contents
 * [overview](#overview)
@@ -145,6 +147,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 “Detecting Bursts in the EEG of Very and Extremely Premature Infants Using a Multi-Feature
 Approach”, Medical Engineering & Physics, vol. 45, pp. 42-50, 2017. 
 [DOI:10.1016/j.medengphy.2017.04.003](https://doi.org/10.1016/j.medengphy.2017.04.003)
+(Version of code to accompany paper: [![DOI](https://zenodo.org/badge/42042482.svg)](https://zenodo.org/badge/latestdoi/42042482))
 
 
 2. JM O' Toole and NJ Stevenson, “Assessing instantaneous energy in the EEG: a
