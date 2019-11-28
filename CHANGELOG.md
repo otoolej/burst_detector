@@ -4,7 +4,8 @@ All notable changes to this project will be documented in this file. Project sta
 0.1.0. More details can be found in the git logs.
 
 ## unreleased
-### Changed 
+### Fix
+- bug in edo.m for Fs_new / Fs not an integer
 
 ## 0.1.1
 ### Changed 

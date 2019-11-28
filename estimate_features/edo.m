@@ -44,7 +44,7 @@
 % John M. O' Toole, University College Cork
 % Started: 18-06-2015
 %
-% last update: Time-stamp: <2015-06-25 16:55:00 (otoolej)>
+% last update: Time-stamp: <2019-11-28 17:19:08 (otoolej)>
 %-------------------------------------------------------------------------------
 function t_stat=edo(x,Fs)
 if(nargin<2), error('need signal and sampling frequency as I/P args.'); end
@@ -54,6 +54,7 @@ if(nargin<2), error('need signal and sampling frequency as I/P args.'); end
 % 0. re-sample to Fs=256 as EDO amplitude is proportional to 
 %    sampling frequency
 %---------------------------------------------------------------------
+N_x = length(x);
 Fs_new=256;
 Fs_orig=[];
 if(Fs~=Fs_new);
@@ -119,6 +120,10 @@ if(~isempty(Fs_orig))
     x_env_der=resample(x_env_der,Fs_orig,Fs_new);
     % resampling may introduce very small negative values:
     x_env_der(x_env_der<0)=0;
+end
+
+if(length(x_env_der) ~= N_x)
+    x_env_der = x_env_der(1:N_x);
 end
 
 t_stat=x_env_der;
