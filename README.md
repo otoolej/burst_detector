@@ -11,6 +11,9 @@ at [github](https://github.com/otoolej/burst_detector).
 
 To cite this software, please use reference [[1]](#references). 
 
+__Update (Nov. 2019): Python version of this code at:
+https://github.com/otoolej/py_burst_detector __
+
 [![DOI](https://zenodo.org/badge/42042482.svg)](https://zenodo.org/badge/latestdoi/42042482)
 
 # contents
